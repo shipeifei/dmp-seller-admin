@@ -4,59 +4,25 @@
             我的机构
         </p>
         <div class="application-model">
-            <p>
+            <p class="p1">
                 <span class="application-item-icon ">
-                    <i class="el-icon-s-data"></i>
-                </span>
-                <span class="application-item-hd">
-                    10000
-                </span>
-                <span class="application-item-title">
-                    可管理总数量
-                </span>
-                <span class="application-item-content">
-                    企业最重要的数据，在EmailCar被完全拟人化。每条数据都代表着一个真实的用户，智能识别数据信息，让你更多了解数据的价值。
+                    免费版(升级)
                 </span>
             </p>
-            <p>
-                <span class="application-item-icon ">
-                    <i class="el-icon-chat-dot-square"></i>
-                </span>
-                <span class="application-item-hd">
-                    1000
-                </span>
-                <span class="application-item-title">
-                    短信发送量
-                </span>
-                <span class="application-item-content">
-                    通过发送短信息的形式将企业的产品、服务等信息传递给手机用户，从而达到广告的目的。
-                </span>
+            <p class="p2">
+                <statistical></statistical>
             </p>
-            <p>
-                <span class="application-item-icon ">
-                    <i class="el-icon-message"></i>
-                </span>
-                <span class="application-item-hd">
-                    无限
-                </span>
-                <span class="application-item-title">
-                    邮件发送量
-                </span>
-                <span class="application-item-content">
-                    邮件批量发送是一款简单高效的电子邮件发送服务，它构建在可靠稳定安全系统基础之上，帮助您快速、精准地实现事务邮件、通知邮件和批量邮件的发送。
-                </span>
-                3
-            </p>
-            <p>
-
-                开发中....
-            </p>
-
         </div>
     </div>
 </template>
 <script>
-export default {};
+import statistical from "./statistical";
+
+export default {
+  components: {
+    statistical
+  }
+};
 </script>
 <style lang="less" scoped>
 .application-title {
@@ -74,8 +40,13 @@ export default {};
   width: 100%;
   border-top: solid 1px #e2e2e2;
   border-bottom: solid 1px #e2e2e2;
-  p {
+  .p1 {
     flex: 1;
+  }
+  .p2 {
+    flex: 3;
+  }
+  p {
     height: 300px;
     border-right: solid 1px #e2e2e2;
     box-sizing: border-box;
@@ -89,52 +60,12 @@ export default {};
       top: 8px;
       left: 8px;
       display: inline-block;
-      width: 30px;
+      width: 130px;
       height: 30px;
-      font-size: 30px;
-      color: #bbb;
-    }
-    .application-item-hd {
-      line-height: 56px;
-      font-size: 38px;
-      color: #333;
-      display: block;
-      text-align: center;
-    }
-    .application-item-title {
-      line-height: 30px;
-      color: #666;
-      display: block;
-      text-align: center;
-      font-size: 14px;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      position: relative;
-      &::before {
-        content: "";
-        width: 50px;
-        height: 1px;
-        background-color: #e2e2e2;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        margin-left: -25px;
-      }
-    }
-    .application-item-content {
       font-size: 12px;
-      color: #666;
-      line-height: 20px;
-      text-align: justify;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      display: -webkit-box;
-      -webkit-line-clamp: 6;
-      -webkit-box-orient: vertical;
-      white-space: normal;
-      text-overflow: -o-ellipsis-lastline;
+      color: #000;
     }
+   
     &::before {
       content: "";
       width: 0;

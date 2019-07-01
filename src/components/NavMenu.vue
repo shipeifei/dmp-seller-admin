@@ -1,6 +1,6 @@
 <template>
     <div class="nav-menu-page">
-        <router-link v-for="(item,index) in navMenus" :key="item.name" :to="item.path" :class="{active:index===currentIndex}" @click="navCurrent(index)" tag="li">
+        <router-link v-for="(item,index) in navMenus" :key="item.name" :to="item.path" tag="li">
             <i :class="item.icon" />
             <span>{{ item.name }}</span>
         </router-link>
@@ -24,24 +24,24 @@ export default {
           path: "/home"
         },
         {
-          icon: "el-icon-s-data",
-          name: "数据管理",
-          path: "/data"
-        },
-        {
-          icon: "el-icon-message",
-          name: "邮件",
-          path: "/email"
-        },
-        {
           icon: "el-icon-chat-dot-square",
           name: "短信",
           path: "duanx"
         },
         {
+          icon: "el-icon-chat-dot-square",
+          name: "机构留言",
+          path: "duanx"
+        },
+        {
           icon: "el-icon-service",
-          name: "客服",
+          name: "机构纠错",
           path: "kef"
+        },
+        {
+          icon: "el-icon-s-data",
+          name: "机构资讯",
+          path: "/data"
         },
         {
           icon: "el-icon-switch-button",
@@ -53,12 +53,7 @@ export default {
   },
   watch: {},
   mounted() {},
-  methods: {
-    navCurrent(index) {
-      console.log(index);
-      this.currentIndex = index;
-    }
-  }
+  methods: {}
 };
 </script>
 <style lang="less" scoped>
@@ -75,7 +70,7 @@ export default {
     padding: 10px;
     text-align: center;
     cursor: pointer;
-    &.active {
+    &.router-link-active {
       background: #1e2126;
     }
     &:hover {
@@ -95,7 +90,7 @@ export default {
       color: #fff;
     }
     &:first-child {
-      margin-bottom:30px;
+      margin-bottom: 30px;
     }
     &:last-child {
       position: fixed;

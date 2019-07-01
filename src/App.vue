@@ -45,11 +45,11 @@ export default {
 .app {
   height: 100%;
   width: 100%;
-  background: #eee;
+  background: #fffcfc;
 }
 .page {
   height: 100%;
   width: 100%;
-  background: #eee;
+  background: #fffcfc;
 }
 </style>

@@ -7,7 +7,7 @@
             <div class="login-form">
                 <p class="title">新用户注册</p>
                 <el-form ref="ruleForm" :model="form" :rules="rules">
-                    <el-form-item label="账号（手机号/邮箱）" prop="username">
+                    <el-form-item @click="handel" label="账号（机构管理员手机号，邮箱，机构编码）" prop="username">
                         <el-input v-model="form.username" placeholder="请输入账号"></el-input>
                     </el-form-item>
                     <el-form-item label="密码" prop="password">
@@ -22,7 +22,7 @@
                 </el-form>
                 <div class="form-item--text">
                     <p>
-                        <span>已有账号？请点击</span>
+                        <span>已入驻？请点击</span>
                         <a href="./login" class="form-item-text-link">登录</a>
                     </p>
                    
@@ -71,6 +71,9 @@ export default {
   },
   mounted() {},
   methods: {
+      handel(){
+          consol.log('sss')
+      },
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {

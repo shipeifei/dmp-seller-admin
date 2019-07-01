@@ -6,7 +6,7 @@
 </template>
 <script>
 import appLication from "./application";
-import chart from "./chart";
+import chart from "./chart/chart";
 export default {
   components: {
     appLication,

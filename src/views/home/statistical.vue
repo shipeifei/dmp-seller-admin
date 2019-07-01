@@ -2,61 +2,50 @@
     <div class="statistical-page">
         <div class="statistical-item">
             <div class="item-icon">
-                <i class="el-icon-position item-firsts"></i>
+                <i class="el-icon-chat-dot-square item-firsts"></i>
             </div>
             <div class="item-bd-hd">
-                0
+                12
             </div>
             <div class="item-bd-text">
-                <span>总发送数</span>
-                <el-tooltip class="item" effect="dark" content="Bottom Center 提示文字" placement="bottom">
-                    <i class="el-icon-question"></i>
-                </el-tooltip>
+                <span>短信</span>
             </div>
         </div>
         <div class="statistical-item">
             <div class="item-icon">
-                <el-progress type="circle" :percentage="0" :width="80"></el-progress>
-            </div>
-            <div class="item-bd-hd">
-                0
-            </div>
-            <div class="item-bd-text">
-                <span>总发送数</span>
-                <el-tooltip class="item" effect="dark" content="Bottom Center 提示文字" placement="bottom">
-                    <i class="el-icon-question"></i>
-                </el-tooltip>
-            </div>
-        </div>
-        <div class="statistical-item">
-            <div class="item-icon">
-                <el-progress type="circle" :percentage="0" :width="80"></el-progress>
-            </div>
-            <div class="item-bd-hd">
-                0
-            </div>
-            <div class="item-bd-text">
-                <span>总发送数</span>
-                <el-tooltip class="item" effect="dark" content="Bottom Center 提示文字" placement="bottom">
-                    <i class="el-icon-question"></i>
-                </el-tooltip>
-            </div>
-        </div>
-        <div class="statistical-item">
-            <div class="item-icon">
-                <el-progress type="circle" :percentage="0" :width="80"></el-progress>
-            </div>
-            <div class="item-bd-hd">
-                0
-            </div>
-            <div class="item-bd-text">
-                <span>总发送数</span>
-                <el-tooltip class="item" effect="dark" content="Bottom Center 提示文字" placement="bottom">
-                    <i class="el-icon-question"></i>
-                </el-tooltip>
+                <i class="el-icon-notebook-1 item-firsts"></i>
 
             </div>
+            <div class="item-bd-hd">
+                40
+            </div>
+            <div class="item-bd-text">
+                <span>机构留言</span>
+            </div>
         </div>
+        <div class="statistical-item">
+            <div class="item-icon">
+                <i class="el-icon-edit item-firsts"></i>
+            </div>
+            <div class="item-bd-hd">
+                20
+            </div>
+            <div class="item-bd-text">
+                <span>机构纠错</span>
+            </div>
+        </div>
+        <div class="statistical-item">
+            <div class="item-icon">
+                <i class="el-icon-monitor item-firsts"></i>
+            </div>
+            <div class="item-bd-hd">
+                2
+            </div>
+            <div class="item-bd-text">
+                <span>机构浏览量</span>
+            </div>
+        </div>
+
     </div>
 </template>
 <script>
@@ -64,15 +53,13 @@ export default {};
 </script>
 <style lang="less" scoped>
 .item-firsts {
-  font-size: 88px;
+  font-size: 68px;
   color: #f47e43;
 }
 .statistical-page .item {
   color: #5697e2;
 }
 .statistical-page {
-  background: #fff;
-  border-top: solid 1px #ccc;
   display: flex;
   flex-direction: row;
   .statistical-item {

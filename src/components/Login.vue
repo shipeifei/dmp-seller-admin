@@ -25,8 +25,8 @@
                         <a href="./forgetPassword" class="form-item-text-link">找回密码</a>
                     </p>
                     <p>
-                        <span>没有账号？请点击</span>
-                        <a href="./register" class="form-item-text-link">注册</a>
+                        <span>没有入驻？请点击</span>
+                        <a href="./register" class="form-item-text-link">立即入驻</a>
                     </p>
                 </div>
                 <p @click="onSubmit">主页</p>
