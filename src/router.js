@@ -6,7 +6,8 @@ const Layout = resolve => require(['@/components/Layout'], resolve)
 const Login = resolve => require(['@/components/Login'], resolve)
 const forgetPassword = resolve => require(['@/components/forgetPassword'], resolve)
 const register = resolve => require(['@/components/register'], resolve)
-const Home = resolve => require(['@/views/home'], resolve)
+const home = resolve => require(['@/views/home'], resolve)
+const data = resolve => require(['@/views/data'], resolve)
 
 Vue.use(Router)
 
@@ -20,7 +21,11 @@ const router = new Router({
             children: [{
                 path: '/home',
                 name: 'home',
-                component: Home
+                component: home
+            }, {
+                path: '/data',
+                name: 'data',
+                component: data
             }]
         },
         {

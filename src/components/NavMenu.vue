@@ -26,7 +26,7 @@ export default {
         {
           icon: "el-icon-s-data",
           name: "数据管理",
-          path: "/shuj"
+          path: "/data"
         },
         {
           icon: "el-icon-message",
