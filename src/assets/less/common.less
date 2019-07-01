@@ -1,0 +1,68 @@
+@import "./variables.less";
+@import "../fonts/iconfont-template.less";
+
+* {
+  box-sizing: border-box;
+}
+body,
+p,
+h2,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+ol,
+dl,
+dt,
+dd,
+fieldset,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+  color: #333;
+}
+
+html {
+//   position: relative;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  min-height: 100%;
+  min-width: 1200px;
+  font-size: 14px;
+  line-height: 1.6;
+  height: 100%;
+  overflow-y: auto !important;
+}
+.login-form{
+    .el-button--primary{
+        width: 100%;
+        background: #fc7e4d;
+        font-size: 18px;
+        height: 52px;
+        color:#fff;
+        border:solid 1px #fc7e4d
+    }
+    .el-input.is-active .el-input__inner, .el-input__inner:focus{
+        border-color: #fc7e4d
+    }
+    .el-form-item.is-required:not(.is-no-asterisk) .el-form-item__label-wrap>.el-form-item__label:before, .el-form-item.is-required:not(.is-no-asterisk)>.el-form-item__label:before{
+        display: none;
+    }
+}
+

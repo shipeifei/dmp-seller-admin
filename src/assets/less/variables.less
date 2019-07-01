@@ -1,0 +1,40 @@
+@font-family: 微软雅黑, Arial;
+@font-family-helvetica: Helvetica, @font-family;
+@vertical-gap-height: 12px;
+@import './colors.less';
+
+@font-family-LTHJ: LTHJ, @font-family;
+@font-family-pirulen-rg: pirulen_rg, @font-family;
+@font-family-Conv-TFB: Conv_TFB, @font-family;
+
+@el-card-header-z-index: 1000;
+@header-z-index: @el-card-header-z-index + 1000;
+@footer-z-index: @header-z-index;
+@menu-z-index: @header-z-index + 1;
+@el-tooltip-popper-z-index: @menu-z-index + 1;
+@scroll-to-top-z-index: @el-tooltip-popper-z-index + 1;
+@el-loading-mask-z-index: 10000;
+@el-loading-mask-fullscreen-z-index: @el-loading-mask-z-index + 1000;
+@el-message-z-index: @el-loading-mask-fullscreen-z-index + 100;
+@task-news-z-index: @menu-z-index - 1;
+
+@nav-height: 68px;
+@nav-background-color: @white-background-color; //按钮整体风格背景颜色
+
+@logo-width: 240px; // logo宽度
+@menu-toggle-duration: 300ms; // 左侧菜单折叠动画时长，需要和src/components/layout/Menu.vue中的menuToggleDuration的值保持一致
+@tag-sytem-menu-background-color: @sytem-menu-background-color; // 标签体系菜单背景色
+
+@breadcrumb-height: 34px; // 面包屑高度
+
+@horizontal-gap: 14px;
+@vertical-gap: 14px;
+@vertical-gap-height: 12px;
+
+@tag-system-menu-width: @logo-width;
+@system-management-menu-width: 200px;
+
+@public-body-width: 1280px;
+@public-min-body-width: 1024px;
+@public-header-height: 60px;
+@public-footer-height: 60px;
