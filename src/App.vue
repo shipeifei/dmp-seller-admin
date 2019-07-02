@@ -41,15 +41,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+@background:rgba(238,238,238,0.2);
 .app {
   height: 100%;
   width: 100%;
-  background: #fffcfc;
+  background:@background;
 }
 .page {
   height: 100%;
   width: 100%;
-  background: #fffcfc;
+  background:@background;
 }
 </style>
