@@ -1,13 +1,21 @@
 <template>
     <div class="application-page">
-        <p class="application-title">
-            我的机构
-        </p>
         <div class="application-model">
             <p class="p1">
-                <span class="application-item-icon ">
+                <!-- <span class="application-item-icon ">
                     免费版(升级)
+                </span> -->
+                <img src="../../assets/home_bg1.jpg" alt="" class="seller-img" />
+                <span class="seller-name">
+                    <b>机构名称</b>
+                    <div class="box-text">账户版本:免费版
+                        <el-tooltip class="item" effect="dark" content="升级到VIP" placement="top" >
+                            <i class="el-icon-top"  @click="seller"></i>
+                        </el-tooltip>
+                    </div>
+                    <div class="box-text">到期时间:无限</div>
                 </span>
+                <label class="seller-info" > 简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</label>
             </p>
             <p class="p2">
                 <statistical></statistical>
@@ -17,23 +25,23 @@
 </template>
 <script>
 import statistical from "./statistical";
-
 export default {
   components: {
     statistical
+  },
+  methods:{
+      seller(){
+          this.$router.push('/seller')
+      }
   }
 };
 </script>
 <style lang="less" scoped>
-.application-title {
-  box-sizing: border-box;
-  width: 100%;
+.el-icon-top {
   font-size: 18px;
-  color: #333;
-  padding-left: 1em;
-  height: 55px;
-  background: #fff;
-  line-height: 55px;
+  font-weight: bolder;
+  color: #f47e43;
+  cursor: pointer;
 }
 .application-model {
   display: flex;
@@ -55,6 +63,33 @@ export default {
     padding-right: 20px;
     background: #f4f7fa;
     position: relative;
+    img.seller-img {
+      width: 120px;
+      height: 120px;
+      overflow: hidden;
+      float: left;
+    }
+    span.seller-name {
+      font-size: 16px;
+      color: #666;
+      float: left;
+      margin-left: 10px;
+    }
+    .box-text {
+      line-height: 25px;
+      font-size: 14px;
+      color: #666;
+      display: block;
+    }
+    label.seller-info {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      font-size: 12px;
+      color: #666;
+      margin-top: 10px;
+      float: left;
+    }
     .application-item-icon {
       position: absolute;
       top: 8px;
@@ -65,7 +100,7 @@ export default {
       font-size: 12px;
       color: #000;
     }
-   
+
     &::before {
       content: "";
       width: 0;

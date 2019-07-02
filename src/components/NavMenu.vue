@@ -15,8 +15,8 @@ export default {
       navMenus: [
         {
           icon: "el-icon-s-custom",
-          name: "用户中心",
-          path: "/user"
+          name: "机构中心",
+          path: "/seller"
         },
         {
           icon: "el-icon-s-home",
