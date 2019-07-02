@@ -31,7 +31,7 @@ export default {
   },
   methods:{
       seller(){
-          this.$router.push('/seller')
+          this.$router.push('/version')
       }
   }
 };

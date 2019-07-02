@@ -8,6 +8,8 @@ const forgetPassword = resolve => require(['@/components/forgetPassword'], resol
 const register = resolve => require(['@/components/register'], resolve)
 const home = resolve => require(['@/views/home'], resolve)
 const seller = resolve => require(['@/views/seller'], resolve)
+const version = resolve => require(['@/views/version'], resolve)
+const order = resolve => require(['@/views/version/order'], resolve)
 
 Vue.use(Router)
 
@@ -26,6 +28,14 @@ const router = new Router({
                 path: '/seller',
                 name: 'seller',
                 component: seller
+            }, {
+                path: '/version',
+                name: 'version',
+                component: version
+            }, {
+                path: '/order',
+                name: 'order',
+                component: order
             }]
         },
         {

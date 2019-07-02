@@ -34,6 +34,7 @@ export default {
   width: 100%;
   display: flex;
   overflow: hidden;
+  
 }
 
 .content-wrapper {
