@@ -5,19 +5,28 @@
         </div>
         <div class="login-main">
             <div class="login-form">
-                <p class="title">新用户注册</p>
+                <p class="title">新用户入驻</p>
                 <el-form ref="ruleForm" :model="form" :rules="rules">
-                    <el-form-item @click="handel" label="账号（机构管理员手机号，邮箱，机构编码）" prop="username">
-                        <el-input v-model="form.username" placeholder="请输入账号"></el-input>
+                    <el-form-item label="机构全称" prop="name">
+                        <el-input v-model="form.name" placeholder="请输入机构全称" class="form-control"></el-input>
                     </el-form-item>
-                    <el-form-item label="密码" prop="password">
-                        <el-input v-model="form.password" placeholder="请输入密码"></el-input>
+                    <el-form-item label="机构简称" prop="briefName">
+                        <el-input v-model="form.briefName" placeholder="请输入机构简称" class="form-control"></el-input>
                     </el-form-item>
-                    <el-form-item label="密码" prop="ConfirmPassword">
-                        <el-input v-model="form.ConfirmPassword" placeholder="请再次输入密码"></el-input>
+                    <el-form-item label="联系人" prop="managerPerson">
+                        <el-input v-model="form.managerPerson" placeholder="请输入联系人" class="form-control"></el-input>
+                    </el-form-item>
+                    <el-form-item label="手机号">
+                        <el-input v-model="form.mobile" placeholder="请输入手机号" class="form-control"></el-input>
+                    </el-form-item>
+                    <el-form-item label="邮箱" prop="email">
+                        <el-input v-model="form.email" placeholder="请输入邮箱" class="form-control"></el-input>
+                    </el-form-item>
+                    <el-form-item label="QQ">
+                        <el-input v-model="form.qq" placeholder="请输入QQ" class="form-control no-required"></el-input>
                     </el-form-item>
                     <el-form-item>
-                        <el-button type="primary" @click="submitForm('ruleForm')">注册</el-button>
+                        <el-button type="primary" @click="submitForm('ruleForm')">入驻</el-button>
                     </el-form-item>
                 </el-form>
                 <div class="form-item--text">
@@ -25,7 +34,7 @@
                         <span>已入驻？请点击</span>
                         <a href="./login" class="form-item-text-link">登录</a>
                     </p>
-                   
+
                 </div>
             </div>
         </div>
@@ -52,47 +61,63 @@ export default {
   data() {
     return {
       form: {
-        username: "",
+        briefName: "",
+        name: "",
+        managerPerson: "",
+        mobile: "",
+        email: "",
+        desc: "",
+        qq: "",
+        weixin: "",
+        cstatus: "noreview",
+        managerPhone: "",
+        managerEmail: "",
         password: "",
-        ConfirmPassword: ""
+        code: ""
       },
       rules: {
-        username: [
-          { required: true, message: "账号不能为空", trigger: "blur" }
+        name: [{ required: true, message: "请输入机构全称", trigger: "blur" }],
+        briefName: [
+          { required: true, message: "请输入机构简称", trigger: "blur" }
         ],
-        password: [
-          { required: true, message: "密码不能为空", trigger: "blur" }
+        briefName: [
+          { required: true, message: "请输入机构简称", trigger: "blur" }
         ],
-        ConfirmPassword: [
-          { required: true, message: "确认密码不能为空", trigger: "blur" }
-        ]
+        managerPerson: [
+          { required: true, message: "请输入联系人", trigger: "blur" }
+        ],
+        email: [{ required: true, message: "请输入邮箱", trigger: "blur" }]
       }
     };
   },
   mounted() {},
   methods: {
-      handel(){
-          consol.log('sss')
-      },
+    isPhone(obj) {
+      //验证是否手机号 mobile
+      let reg = /^1\d{10}$/;
+      if (!reg.test(obj)) {
+        return false;
+      } else {
+        return true;
+      }
+    },
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          alert("submit!");
-          if (this.form.password != this.form.ConfirmPassword) {
-            this.$message({
-              showClose: true,
-              message: "两次输入的密码不一致，请重新输入",
-              type: "warning"
-            });
+          if (!this.form.mobile.trim()) {
+            this.$message.error("请输入手机号");
             return false;
           }
+          if (!this.isPhone(this.form.mobile.trim())) {
+            this.$message.error("请输入11位有效手机号");
+            return false;
+          }
+          alert("submit!");
         } else {
           console.log("error submit!!");
-          return false;
         }
       });
-    },
-
+    }
   }
 };
 </script>
@@ -121,7 +146,7 @@ body {
     background-color: #fff;
     border-radius: 3px;
     width: 600px;
-    padding-bottom:40px;
+    padding-bottom: 40px;
     .login-form {
       width: 450px;
       margin: 0px auto;

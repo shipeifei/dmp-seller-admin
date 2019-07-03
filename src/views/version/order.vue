@@ -2,12 +2,21 @@
     <div class="order-page">
         <div class="order-title">订单支付</div>
         <div class="order-content">
-
             <div class="pay-title">订单支付确认</div>
+            <div class="pay-year">
+                <span>购买年限：</span>
+                <label>
+                    <el-slider v-model="year" :step="1" :max="5" :show-tooltip="false" show-stops>
+                    </el-slider>
+                </label>
+                <p>
+                    <b v-for="item in 5">{{item}}年</b>
+                </p>
+            </div>
             <div class="pay-panel-item">
                 <div class="pay-panel-item-hd">购买的版本</div>
                 <div class="pay-panel-item-bd">标准版 ￥
-                    <b>9000</b> 1年
+                    <b>{{amount}}</b> 1年
                 </div>
             </div>
             <div class="pay-panel-item">
@@ -16,24 +25,63 @@
                 </div>
             </div>
             <div class="pay-panel-item">
-                <div class="pay-panel-item-hd"><el-checkbox v-model="checked">需要发票</el-checkbox></div>
-                <div class="pay-panel-item-bd" v-show="checked">
-                    <a>添加发票信息</a>  
+                <el-checkbox v-model="checked">需要发票</el-checkbox>
+                <p class="pay-invoice" v-show="checked" @click="open">添加发票信息</p>
+            </div>
+            <div class="pay-total">
+                <div class="pay-total-text">
+                    <label>订单应付：</label>
+                    <span>￥{{totalAmount}}</span>
+
                 </div>
+            </div>
+            <div class="pay-fool">
+                <el-button @click="back">返回修改</el-button>
+                <el-button type="primary">立即支付</el-button>
             </div>
 
         </div>
+        <version-dialog ref="versionDialog"></version-dialog>
     </div>
 </template>
 <script>
+import versionDialog from "./versionDialog";
 export default {
   data() {
     return {
-        checked:false
+      checked: false,
+      year: 1,
+      amount: 4000
     };
   },
+  computed: {
+    totalAmount() {
+      if (this.year == 1) {
+        return this.amount * this.year;
+      }else if(this.year==2){
+        return (this.amount * this.year)*0.95;
+      }else if(this.year==3){
+        return (this.amount * this.year)*0.9;
+      }else if(this.year==4){
+        return (this.amount * this.year)*0.88;
+      }else if(this.year==5){
+        return (this.amount * this.year)*0.85;
+      }
+    }
+  },
+  components: {
+    versionDialog
+  },
+  methods: {
+    open() {
+      this.$refs.versionDialog.open();
+    },
+    back(){
+        this.$router.push('/version')
+    }
+  },
   mounted() {
-    console.log(this.$route.params.item);
+      console.log(this.$route.params.pay)
   }
 };
 </script>
@@ -68,6 +116,21 @@ export default {
       text-align: center;
       border-bottom: 1px solid #e2e2e2;
     }
+    .pay-year {
+      span {
+        font-size: 16px;
+        color: #333;
+        margin: 20px 0 0;
+        display: block;
+      }
+      p {
+        display: flex;
+        b {
+          flex: 1;
+          text-align: center;
+        }
+      }
+    }
     .pay-panel-item {
       font-size: 16px;
       color: #333;
@@ -79,8 +142,14 @@ export default {
       box-sizing: border-box;
       padding-left: 55px;
       min-height: 71px;
+      line-height: 44px;
+      .pay-invoice {
+        color: #5093e1;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 14px;
+      }
       .pay-panel-item-hd {
-        
         float: left;
         margin-right: 40px;
         display: inline-block;
@@ -92,11 +161,28 @@ export default {
         line-height: 44px;
         b {
           color: #f47e43;
-          font-weight: 300;
-        //   font-size: 26px;
+          font-weight: bold;
+          font-size: 18px;
           margin-right: 5px;
         }
       }
+    }
+    .pay-total {
+      display: block;
+      padding-top: 45px;
+      padding-bottom: 25px;
+      .pay-total-text {
+        font-size: 14px;
+        color: #666;
+        text-align: center;
+        span {
+          color: #f47e43;
+          font-size: 30px;
+        }
+      }
+    }
+    .pay-fool {
+      text-align: center;
     }
   }
 }

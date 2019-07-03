@@ -33,7 +33,7 @@ const router = new Router({
                 name: 'version',
                 component: version
             }, {
-                path: '/order',
+                path: '/order/:pay',
                 name: 'order',
                 component: order
             }]

@@ -20,8 +20,8 @@
                         <a href="./login" class="form-item-text-link">登录</a>
                     </p>
                     <p>
-                        <span>没有账号？请点击</span>
-                        <a href="/register" class="form-item-text-link">注册</a>
+                        <span>没有入驻？请点击</span>
+                        <a href="/register" class="form-item-text-link">入驻</a>
                     </p>
                 </div>
             </div>

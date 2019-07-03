@@ -3,15 +3,18 @@
         <div class="message">消息通知</div>
         <app-lication></app-lication>
         <chart></chart>
+        <recommand-seller></recommand-seller>
     </div>
 </template>
 <script>
 import appLication from "./application";
 import chart from "./chart/chart";
+import recommandSeller from "../../components/recommandSeller";
 export default {
   components: {
     appLication,
-    chart
+    chart,
+    recommandSeller
   }
 };
 </script>

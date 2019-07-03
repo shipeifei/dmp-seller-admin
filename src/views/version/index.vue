@@ -134,16 +134,14 @@
 </template>
 <script>
 export default {
- data(){
-     return{
-         message:'sss'
-     }
- },
- methods:{
-     pay(item){
-         this.$router.push('/order')
-     }
- }
+  data() {
+    return {};
+  },
+  methods: {
+    pay(pay) {
+      this.$router.push({ path: "/order/" + pay });
+    }
+  }
 };
 </script>
 <style lang="less" scoped>

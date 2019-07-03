@@ -44,6 +44,11 @@ export default {
           path: "/data"
         },
         {
+          icon: "el-icon-shopping-cart-full",
+          name: "购买套餐",
+          path: "/version"
+        },
+        {
           icon: "el-icon-switch-button",
           name: "退出",
           path: "/login"
