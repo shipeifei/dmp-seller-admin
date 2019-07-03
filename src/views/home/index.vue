@@ -1,20 +1,34 @@
 <template>
     <div class="home-page">
-        <div class="message">消息通知</div>
-        <app-lication></app-lication>
+        <div class="message">最近使用: 短信,机构留言</div>
+        <message></message>
+        <div class="banner">
+            <app-lication></app-lication>
+            <info></info>
+        </div>
         <chart></chart>
-        <recommand-seller></recommand-seller>
+        <statistical></statistical>
+
+        <!-- <recommand-seller></recommand-seller> -->
     </div>
 </template>
 <script>
+import message from "./message";
 import appLication from "./application";
+import info from "./info";
+import statistical from "./statistical";
+
 import chart from "./chart/chart";
-import recommandSeller from "../../components/recommandSeller";
+// import recommandSeller from "../../components/recommandSeller";
 export default {
   components: {
+    message,
     appLication,
+    statistical,
+    info,
     chart,
-    recommandSeller
+
+    // recommandSeller
   }
 };
 </script>
@@ -29,6 +43,15 @@ export default {
   background: #fff;
   line-height: 55px;
   padding-bottom: 50px;
+}
+.banner {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  div {
+    flex: 1;
+    margin: 20px;
+  }
 }
 </style>
 

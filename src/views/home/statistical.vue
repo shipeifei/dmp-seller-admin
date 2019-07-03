@@ -1,6 +1,6 @@
 <template>
     <div class="statistical-page">
-        <div class="statistical-item">
+        <div class="statistical-item" @click="goSms">
             <div class="item-icon">
                 <i class="el-icon-chat-dot-square item-firsts"></i>
             </div>
@@ -8,7 +8,7 @@
                 12
             </div>
             <div class="item-bd-text">
-                <span>短信</span>
+                <span>发送短信记录</span>
             </div>
         </div>
         <div class="statistical-item">
@@ -45,11 +45,33 @@
                 <span>机构浏览量</span>
             </div>
         </div>
+        <div class="statistical-item">
+            <div class="item-icon">
+                <i class="el-icon-monitor item-firsts"></i>
+            </div>
+            <div class="item-bd-hd">
+                2
+            </div>
+            <div class="item-bd-text">
+                <span>机构收藏</span>
+            </div>
+        </div>
 
     </div>
 </template>
 <script>
-export default {};
+export default {
+    data(){
+        return{
+            
+        }
+    },
+    methods:{
+        goSms(){
+            this.$router.push('/sms')
+        }
+    }
+};
 </script>
 <style lang="less" scoped>
 .item-firsts {

@@ -76,7 +76,7 @@
                 <div class="version-state">
                     <span>¥
                         <em>8000</em>元</span>
-                    <label>立即支付</label>
+                    <label @click="pay('vip')">立即支付</label>
                 </div>
                 <div class="version-content">
                     <dl>
@@ -169,7 +169,7 @@ export default {
     display: flex;
     box-sizing: border-box;
     padding-top: 20px;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     .grid-content {
       flex: 1;

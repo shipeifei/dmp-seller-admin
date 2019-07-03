@@ -15,7 +15,7 @@
             </div>
             <div class="pay-panel-item">
                 <div class="pay-panel-item-hd">购买的版本</div>
-                <div class="pay-panel-item-bd">标准版 ￥
+                <div class="pay-panel-item-bd">{{version}} ￥
                     <b>{{amount}}</b> 1年
                 </div>
             </div>
@@ -25,8 +25,9 @@
                 </div>
             </div>
             <div class="pay-panel-item">
-                <el-checkbox v-model="checked">需要发票</el-checkbox>
-                <p class="pay-invoice" v-show="checked" @click="open">添加发票信息</p>
+                需要发票请拨打电话:111111
+                <!-- <el-checkbox v-model="checked"></el-checkbox> -->
+                <!-- <p class="pay-invoice" v-show="checked" @click="open">添加发票信息</p> -->
             </div>
             <div class="pay-total">
                 <div class="pay-total-text">
@@ -51,7 +52,9 @@ export default {
     return {
       checked: false,
       year: 1,
-      amount: 4000
+      amount: '4000',
+      version:'标准版'
+      
     };
   },
   computed: {
@@ -59,13 +62,13 @@ export default {
       if (this.year == 1) {
         return this.amount * this.year;
       }else if(this.year==2){
-        return (this.amount * this.year)*0.95;
+        return (this.amount * this.year)*0.98;
       }else if(this.year==3){
-        return (this.amount * this.year)*0.9;
+        return (this.amount * this.year)*0.95;
       }else if(this.year==4){
-        return (this.amount * this.year)*0.88;
+        return (this.amount * this.year)*0.90;
       }else if(this.year==5){
-        return (this.amount * this.year)*0.85;
+        return (this.amount * this.year)*0.88;
       }
     }
   },
@@ -81,7 +84,13 @@ export default {
     }
   },
   mounted() {
-      console.log(this.$route.params.pay)
+      if(this.$route.params.pay==='standard'){
+          this.amount=4000;
+          this.version='标准版'
+      }else if(this.$route.params.pay==='vip'){
+          this.amount=8000;
+          this.version="VIP版"
+      }
   }
 };
 </script>
