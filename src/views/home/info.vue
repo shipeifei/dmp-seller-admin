@@ -27,6 +27,10 @@ export default {
 .info-page {
   background: #fff;
   padding: 10px;
+  li{
+      font-size: 12px;
+      color:#878787;
+  }
 }
 </style>
 

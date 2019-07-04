@@ -41,7 +41,7 @@ export default {
 .el-icon-top {
   font-size: 14px;
   font-weight: bolder;
-  color: #f47e43;
+  color: #409EFF;
 }
 .application-model {
   p {
@@ -60,23 +60,23 @@ export default {
     }
     span.seller-name {
       font-size: 16px;
-      color: #666;
+      color: #878787;
       float: left;
       margin-left: 10px;
     }
     .box-text {
       line-height: 25px;
       font-size: 14px;
-      color: #666;
+      color: #878787;
       display: block;
       span {
         text-decoration: underline;
-        color: #f47e43;
+        color: #409EFF;
         cursor: pointer;
       }
       .upgrade {
         text-decoration: underline;
-        color: #f47e43;
+        color: #409EFF;
         cursor: pointer;
       }
     }
@@ -85,7 +85,7 @@ export default {
       width: 100%;
       overflow: hidden;
       font-size: 12px;
-      color: #666;
+      color: #878787;
       margin-top: 10px;
       float: left;
     }

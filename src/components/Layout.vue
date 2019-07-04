@@ -40,6 +40,7 @@ export default {
 .content-wrapper {
   overflow-y: auto;
   flex: 1;
+  padding-bottom:50px;
 //   padding: 20px;
 }
 </style>

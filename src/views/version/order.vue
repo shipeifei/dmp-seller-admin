@@ -10,7 +10,23 @@
                     </el-slider>
                 </label>
                 <p>
-                    <b v-for="item in 5">{{item}}年</b>
+                    <b v-for="item in 5">
+                        <span v-if="item===1"> {{item}}年/
+                            <label>原价</label>
+                        </span>
+                        <span v-if="item===2"> {{item}}年/
+                            <label>98折</label>
+                        </span>
+                        <span v-if="item===3"> {{item}}年/
+                            <label>95折</label>
+                        </span>
+                        <span v-if="item===4"> {{item}}年/
+                            <label>9折</label>
+                        </span>
+                        <span v-if="item===5"> {{item}}年/
+                            <label>88折</label>
+                        </span>
+                    </b>
                 </p>
             </div>
             <div class="pay-panel-item">
@@ -32,8 +48,8 @@
             <div class="pay-total">
                 <div class="pay-total-text">
                     <label>订单应付：</label>
-                    <span>￥{{totalAmount}}</span>
-
+                    <span>￥{{totalAmount}} </span>
+                    <span class="del-through" >￥{{year*amount}}</span>
                 </div>
             </div>
             <div class="pay-fool">
@@ -52,23 +68,22 @@ export default {
     return {
       checked: false,
       year: 1,
-      amount: '4000',
-      version:'标准版'
-      
+      amount: "4000",
+      version: "标准版"
     };
   },
   computed: {
     totalAmount() {
       if (this.year == 1) {
         return this.amount * this.year;
-      }else if(this.year==2){
-        return (this.amount * this.year)*0.98;
-      }else if(this.year==3){
-        return (this.amount * this.year)*0.95;
-      }else if(this.year==4){
-        return (this.amount * this.year)*0.90;
-      }else if(this.year==5){
-        return (this.amount * this.year)*0.88;
+      } else if (this.year == 2) {
+        return this.amount * this.year * 0.98;
+      } else if (this.year == 3) {
+        return this.amount * this.year * 0.95;
+      } else if (this.year == 4) {
+        return this.amount * this.year * 0.9;
+      } else if (this.year == 5) {
+        return this.amount * this.year * 0.88;
       }
     }
   },
@@ -79,18 +94,18 @@ export default {
     open() {
       this.$refs.versionDialog.open();
     },
-    back(){
-        this.$router.push('/version')
+    back() {
+      this.$router.push("/version");
     }
   },
   mounted() {
-      if(this.$route.params.pay==='standard'){
-          this.amount=4000;
-          this.version='标准版'
-      }else if(this.$route.params.pay==='vip'){
-          this.amount=8000;
-          this.version="VIP版"
-      }
+    if (this.$route.params.pay === "standard") {
+      this.amount = 4000;
+      this.version = "标准版";
+    } else if (this.$route.params.pay === "vip") {
+      this.amount = 8000;
+      this.version = "VIP版";
+    }
   }
 };
 </script>
@@ -102,7 +117,7 @@ export default {
   .order-title {
     width: 100%;
     font-size: 18px;
-    color: #333;
+    color: #878787;
     padding-left: 1em;
     height: 55px;
     background: #fff;
@@ -120,7 +135,7 @@ export default {
     border-radius: 5px;
     .pay-title {
       line-height: 130px;
-      color: #333;
+      color: #878787;
       font-size: 24px;
       text-align: center;
       border-bottom: 1px solid #e2e2e2;
@@ -128,7 +143,7 @@ export default {
     .pay-year {
       span {
         font-size: 16px;
-        color: #333;
+        color: #878787;
         margin: 20px 0 0;
         display: block;
       }
@@ -137,12 +152,17 @@ export default {
         b {
           flex: 1;
           text-align: center;
+          font-size: 12px;
+          font-weight: normal;
+          label {
+            color: #409EFF;
+          }
         }
       }
     }
     .pay-panel-item {
       font-size: 16px;
-      color: #333;
+      color: #878787;
       line-height: 20px;
       border-bottom: 1px solid #e2e2e2;
       display: block;
@@ -169,7 +189,7 @@ export default {
         color: #666;
         line-height: 44px;
         b {
-          color: #f47e43;
+          color: #409EFF;
           font-weight: bold;
           font-size: 18px;
           margin-right: 5px;
@@ -185,8 +205,13 @@ export default {
         color: #666;
         text-align: center;
         span {
-          color: #f47e43;
+          color: #409EFF;
           font-size: 30px;
+        }
+        span.del-through {
+          text-decoration: line-through;
+          font-size: 18px;
+          color: #ccc;
         }
       }
     }

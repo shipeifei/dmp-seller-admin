@@ -1,37 +1,86 @@
 <template>
     <div class="message-page">
-          <p>
-                待续费 0
-            </p>
-            <p>
-                短信剩余条数 10条
-            </p>
-            <p>
-                短信提醒使用 20条
-            </p>
-            <p>
-                邮件提醒 20次
-            </p>
+        <div class="stat-widget-two" v-for="(item,index) in messageData" :key="index">
+            <div class="widget-icon color-1" :style="{color:colorArr[index]}">
+                <i :class="item.icon"></i>
+            </div>
+            <div class="stat-content">
+                <div class="stat-text">{{item.title}}</div>
+                <div class="stat-digit" :style="{color:colorArr[index]}">{{item.number}}</div>
+            </div>
+        </div>
     </div>
 </template>
-<style lang="less" scoped>
-.message-page{
-    width: 100%;
-    display: flex;
-    box-sizing: border-box;
-    margin-top:20px;
-    p{
-        width: 20%;
-        flex: 1;
-        background: #fff;
-        color:#333;
-        line-height: 30px;
-        text-indent: 20px;
-        margin-left:20px;
-        &:last-child{
-            margin-right:20px;
+<script>
+export default {
+  data() {
+    return {
+      colorArr: ["#41c300", "#00838F", "#f47e43"],
+      messageData: [
+        {
+          title: "今天短信发送",
+          number: 2,
+          icon: "el-icon-user-solid"
+        },
+        {
+          title: "今日留言",
+          number: 2,
+          icon: "el-icon-user-solid"
+        },
+        {
+          title: "今日纠错",
+          number: 10,
+          icon: "el-icon-chat-dot-square"
+        },
+        {
+          title: "今日浏览量",
+          number: 2,
+          icon: "el-icon-message"
+        },
+        {
+          title: "今日收藏",
+          number: 2,
+          icon: "el-icon-message"
         }
-    }
+      ]
+    };
+  }
+};
+</script>
+
+<style lang="less" scoped>
+.message-page {
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  margin-top: 20px;
+  .stat-widget-two {
+    flex: 1;
+    background: #fff;
+    margin: 0 10px;
+    padding: 10px;
+    border: 0px;
+    border-radius: 0px;
+    width: 24%;
+    text-align: left;
+    position: relative;
+  }
+  .stat-widget-two .widget-icon {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 16px;
+  }
+  .stat-widget-two .stat-text {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #878787;
+  }
+  .stat-widget-two .stat-digit {
+    font-size: 16px;
+    font-weight: 600;
+    color: #878787;
+  }
 }
 </style>
 

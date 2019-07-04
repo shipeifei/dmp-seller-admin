@@ -154,12 +154,10 @@ export default {
 .version-page {
   box-sizing: border-box;
   width: 100%;
-  padding-bottom: 50px;
-
   .version-title {
     width: 100%;
     font-size: 18px;
-    color: #333;
+    color: #878787;
     padding-left: 1em;
     height: 55px;
     background: #fff;
@@ -195,6 +193,7 @@ export default {
         height: 120px;
         margin: 10px auto;
         text-align: center;
+        color:#878787;
         cursor: pointer;
         span,
         label {
@@ -206,6 +205,7 @@ export default {
             font-size: 28px;
             font-style: normal;
             margin: 0 4px;
+            color:#000;
           }
         }
         label {
@@ -229,6 +229,7 @@ export default {
             font-size: 12px;
             padding-left: 10px;
             line-height: 26px;
+            color:#878787;
           }
         }
       }

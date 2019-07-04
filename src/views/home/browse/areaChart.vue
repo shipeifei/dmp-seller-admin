@@ -33,18 +33,18 @@ export default {
     option(monthArr) {
       return {
         title: {
-          text: "邮件/短信营销",
+          text: "浏览量",
           x:"20px"
         },
         tooltip: {
           trigger: "axis"
         },
         legend: {
-          data: ["邮件营销", "短信营销"]
+          data: ["浏览量"]
         },
         grid: {
           left: "3%",
-          right: "4%",
+          right: "8%",
           bottom: "3%",
           containLabel: true
         },
@@ -62,17 +62,12 @@ export default {
         },
         series: [
           {
-            name: "邮件营销",
+            name: "浏览量",
             type: "line",
             stack: "总量",
             data: [120, 132, 101, 134, 90, 230, 210, 34, 21, 23, 89, 123]
-          },
-          {
-            name: "短信营销",
-            type: "line",
-            stack: "总量",
-            data: [220, 182, 191, 234, 290, 330, 310, 12, 43, 45, 78, 19]
           }
+
         ]
       };
     }
