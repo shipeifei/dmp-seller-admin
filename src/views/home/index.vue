@@ -24,6 +24,12 @@
     </div>
 </template>
 <script>
+// 添加引导步骤
+
+import Driver from "driver.js"; // import driver.js
+import "driver.js/dist/driver.min.css"; // import driver.js css
+import steps from "../../utils/guide";
+
 import commonly from "./components/commonly";
 import todayData from "./components/todayData";
 import members from "./components/members";
@@ -43,6 +49,28 @@ export default {
   },
   data() {
     return {};
+  },
+  mounted() {
+    this.driver = new Driver({
+      className: "scoped-class", 
+      animate: true, 
+      opacity: 0.75, 
+      padding: 10, 
+      allowClose: true, 
+      overlayClickNext: false, 
+      doneBtnText: "完成",
+      closeBtnText: "关闭", 
+      nextBtnText: "下一步",
+      prevBtnText: "上一步" 
+    });
+    this.guide();
+  },
+  methods: {
+    //引导步骤
+    guide() {
+      this.driver.defineSteps(steps);
+      this.driver.start();
+    }
   }
 };
 </script>
