@@ -15,32 +15,32 @@
 export default {
   data() {
     return {
-      colorArr: ["#41c300", "#00838F", "#f47e43"],
+      colorArr: ["#41c300", "#00838F", "#f47e43","#409eff","#DC143C"],
       messageData: [
         {
           title: "今天短信发送",
           number: 2,
-          icon: "el-icon-user-solid"
+          icon: "el-icon-chat-dot-square"
         },
         {
           title: "今日留言",
           number: 2,
-          icon: "el-icon-user-solid"
+          icon: "el-icon-chat-line-square"
         },
         {
           title: "今日纠错",
           number: 10,
-          icon: "el-icon-chat-dot-square"
+          icon: "el-icon-edit"
         },
         {
           title: "今日浏览量",
           number: 2,
-          icon: "el-icon-message"
+          icon: "el-icon-monitor"
         },
         {
           title: "今日收藏",
           number: 2,
-          icon: "el-icon-message"
+          icon: "el-icon-star-on"
         }
       ]
     };

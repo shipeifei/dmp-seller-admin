@@ -1,11 +1,23 @@
 <template>
-    <div id="areaChart"></div>
+    <div>
+        <div class="title">
+            <p v-for="(item,index) in title" :key="index" @click="tab(index)" :class="{active:index==currentIndex}">
+                {{item}}
+            </p>
+        </div>
+        <div v-show="currentIndex==0" class="browseChar" id="todayChart"></div>
+        <div v-show="currentIndex==1" class="browseChar">本周浏览量</div>
+        <div v-show="currentIndex==2" class="browseChar">本月浏览量</div>
+    </div>
+
 </template>
 <script>
 import echarts from "echarts";
 export default {
   data() {
     return {
+      currentIndex: 0,
+      title: ["今日浏览量", "本周浏览量", "本月浏览量"],
       monthArr: []
     };
   },
@@ -14,6 +26,9 @@ export default {
     this.getEchart();
   },
   methods: {
+    tab(index) {
+      this.currentIndex = index;
+    },
     getMonth() {
       var data = new Date();
       var year = data.getFullYear();
@@ -27,14 +42,14 @@ export default {
       }
     },
     getEchart() {
-      let areaChart = echarts.init(document.getElementById("areaChart"));
-      areaChart.setOption(this.option(this.monthArr));
+      let todayChart = echarts.init(document.getElementById("todayChart"));
+      todayChart.setOption(this.option(this.monthArr));
     },
     option(monthArr) {
       return {
         title: {
           text: "浏览量",
-          x:"20px"
+          x: "20px"
         },
         tooltip: {
           trigger: "axis"
@@ -67,7 +82,6 @@ export default {
             stack: "总量",
             data: [120, 132, 101, 134, 90, 230, 210, 34, 21, 23, 89, 123]
           }
-
         ]
       };
     }
@@ -75,9 +89,27 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-#areaChart {
+.title {
+  width: 100%;
   background: #fff;
-  padding:10px 0;
+  .active {
+    color: #409eff;
+    border-bottom: solid 2px #409eff;
+  }
+  p {
+    display: inline-block;
+    margin-right: 10px;
+    color: #878787;
+    font-size: 14px;
+    margin: 0 10px;
+    height: 38px;
+    line-height: 38px;
+    cursor: pointer;
+  }
+}
+.browseChar,#todayChart{
+  background: #fff;
+  padding: 10px 0;
   width: 100%;
   height: 330px;
   box-sizing: border-box;

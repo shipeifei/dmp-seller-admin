@@ -2,7 +2,7 @@
     <div class="application-page">
         <div class="application-model">
             <p>
-                <img src="../../assets/3.jpg" alt="" class="seller-img" />
+                <img src="../../../assets/3.jpg" alt="" class="seller-img" />
                 <span class="seller-name">
                     <b>机构名称</b>
                     <div class="box-text">账户版本:免费版
@@ -14,6 +14,7 @@
                         </el-tooltip>
                     </div>
                     <div class="box-text">到期时间:无限</div>
+                    <div class="box-text">入驻时间:2019-09-11</div>
                     <div class="box-text" @click="editor">
                         <span>编辑</span>
                     </div>
