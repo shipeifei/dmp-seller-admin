@@ -10,6 +10,7 @@ const home = resolve => require(['@/views/home'], resolve)
 const sms = resolve => require(['@/views/sms'], resolve)
 const sellerLeaveMessage = resolve => require(['@/views/sellerLeaveMessage'], resolve)
 const seller = resolve => require(['@/views/seller'], resolve)
+const sellerError = resolve => require(['@/views/sellerError'], resolve)
 const version = resolve => require(['@/views/version'], resolve)
 const order = resolve => require(['@/views/version/order'], resolve)
 
@@ -38,6 +39,10 @@ const router = new Router({
                 path: '/seller',
                 name: 'seller',
                 component: seller
+            }, {
+                path: '/sellerError',
+                name: 'sellerError',
+                component: sellerError
             }, {
                 path: '/version',
                 name: 'version',

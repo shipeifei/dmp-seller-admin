@@ -1,9 +1,9 @@
 <template>
-    <div class="sms-page">
-        <div class="sms-title">短信记录</div>
-        <div class="sms-table">
+    <div class="error-page">
+        <div class="error-title">机构纠错</div>
+        <div class="error-table">
             <h3>有
-                <i>{{tableData.length}}</i>&nbsp;条记录 (升级VIP可查看完整手机号)
+                <i>{{tableData.length}}</i>&nbsp;条记录 (升级VIP可查看所有错误内容)
                 <span @click="go">马上升级
                     <i class="el-icon-top"></i>
                 </span>
@@ -11,10 +11,7 @@
             <el-table :data="tableData" border style="width: 100%">
                 <el-table-column prop="id" label="序号">
                 </el-table-column>
-                <el-table-column label="手机号">
-                    <template slot-scope="scope">
-                        <span>{{scope.row.tel | tel}}</span>
-                    </template>
+                <el-table-column prop="content" label="纠错内容">
                 </el-table-column>
                 <el-table-column prop="time" label="日期">
                 </el-table-column>
@@ -24,6 +21,7 @@
                 </el-pagination>
             </div>
         </div>
+
     </div>
 </template>
 <script>
@@ -35,13 +33,12 @@ export default {
       tableData: [
         {
           id: 1,
-          tel: "13011111111",
+          content: "地址不正确",
           time:'2019-07-09'
-          
         },
         {
           id: 2,
-          tel: "13022222222",
+          content: "电话号码有错误",
           time:'2019-07-09'
 
         }
@@ -58,23 +55,15 @@ export default {
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
     }
-  },
-  filters: {
-    // 手机号脱敏
-    tel(val) {
-      let data = val.replace(/(\d{3})\d{4}(\d*)/, "$1****$2");
-      return data;
-    }
   }
 };
 </script>
-
 <style lang="less" scoped>
-.sms-page {
+.error-page {
   width: 100%;
   box-sizing: border-box;
   padding-bottom: 50px;
-  .sms-title {
+  .error-title {
     width: 100%;
     font-size: 18px;
     color: #878787;
@@ -83,7 +72,7 @@ export default {
     background: #fff;
     line-height: 55px;
   }
-  .sms-table {
+  .error-table {
     width: 100%;
     padding: 20px;
     span {
@@ -111,4 +100,5 @@ export default {
   }
 }
 </style>
+
 

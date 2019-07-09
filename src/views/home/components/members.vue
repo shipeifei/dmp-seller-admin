@@ -1,15 +1,18 @@
 <template>
     <el-card class="box-card">
         <div slot="header" class="clearfix">
-            <span>标准套餐</span>
+            <span>当前版本:标准套餐</span>
         </div>
         <div class="card-text item">
             <p>
                 <span>购买日期：{{purchaseDate | date}}</span><br/>
+                <span>到期日期：{{purchaseDate | date}}</span><br/>
                 <span>剩余天数：{{purchaseDate | diffdate}}</span>
             </p>
             <li v-for="(item,index) in packageData" :key="index">
                 <p>共计{{item.total}}条</p>
+                已使用多少条
+                剩余多少条
                 <span>{{item.title}}</span>
                 <!-- <span>{{item.number}}</span> -->
                 <el-progress :percentage="100-(item.number/item.total*100)" :format="format"></el-progress>

@@ -33,11 +33,11 @@ export default {
           name: "机构留言",
           path: "/sellerLeaveMessage"
         },
-        {
-          icon: "el-icon-edit",
-          name: "机构纠错",
-          path: "kef"
-        },
+        // {
+        //   icon: "el-icon-edit",
+        //   name: "机构纠错",
+        //   path: "sellerError"
+        // },
         {
           icon: "el-icon-s-data",
           name: "机构资讯",

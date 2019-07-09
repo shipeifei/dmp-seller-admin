@@ -19,7 +19,7 @@ export default {
   methods: {
     getHours() {
       for (var i = 1; i <=24; i++) {
-        this.hoursArr.push(i+ "时");
+        this.hoursArr.push(i+ ":00");
       }
     },
     hoursData(){
@@ -57,8 +57,8 @@ export default {
           boundaryGap: false,
           data: hoursArr,
           axisLabel: {
-            interval: 0
-            // rotate:-10
+            interval: 0,
+            rotate:-60
           }
         },
         yAxis: {

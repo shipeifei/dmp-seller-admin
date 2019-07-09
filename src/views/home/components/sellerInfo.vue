@@ -13,7 +13,6 @@
                             </span>
                         </el-tooltip>
                     </div>
-                    <div class="box-text">到期时间:无限</div>
                     <div class="box-text">入驻时间:{{purchaseDate | date}}</div>
                     <div class="box-text" @click="editor">
                         <span>编辑</span>

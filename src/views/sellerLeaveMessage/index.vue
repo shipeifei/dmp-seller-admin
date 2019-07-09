@@ -3,20 +3,16 @@
         <div class="leave-title">机构留言</div>
         <div class="leave-table">
             <h3>有
-                <i>{{tableData.length}}</i>&nbsp;条留言 (升级VIP可查看全部留言)
-
-                <span @click="go">马上升级
-                    <i class="el-icon-top"></i>
-                </span>
+                <i>{{tableData.length}}</i>&nbsp;条留言 
             </h3>
-            <el-table :data="tableData.slice(0,3)" border style="width: 100%" class="table-cel">
-                <el-table-column prop="id" label="序号">
-                </el-table-column>
-                <el-table-column prop="name" label="用户名">
+            <el-table :data="tableData" border style="width: 100%" class="table-cel">
+                <el-table-column prop="name" label="留言姓名">
                 </el-table-column>
                 <el-table-column prop="content" label="留言内容">
                 </el-table-column>
-                <el-table-column prop="time" label="时间">
+                <el-table-column prop="time" label="留言手机号">
+                </el-table-column>
+                <el-table-column prop="time" label="留言日期">
                 </el-table-column>
             </el-table>
             <div class="block">
@@ -73,9 +69,6 @@ export default {
     };
   },
   methods: {
-    go() {
-      this.$router.push("/version");
-    },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
     },

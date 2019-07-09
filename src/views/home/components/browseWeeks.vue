@@ -15,16 +15,15 @@ export default {
   },
   methods: {
     getMonth() {
-      var data = new Date();
-      var year = data.getFullYear();
-      data.setMonth(data.getMonth() + 1, 1); //获取到当前月份,设置月份
-      for (var i = 0; i < 6; i++) {
-        data.setMonth(data.getMonth() - 1); //每次循环一次 月份值减1
-        var m = data.getMonth() + 1;
-        m = m < 10 ? "0" + m : m;
-        this.monthArr.push(data.getFullYear() + "年" + m + "月");
-        this.monthArr.sort();
-      }
+      var today = new Date();
+      var targetday_milliseconds = today.getTime() + 1000 * 60 * 60 * 24 * day;
+      today.setTime(targetday_milliseconds); //注意，这行是关键代码
+      var tYear = today.getFullYear();
+      var tMonth = today.getMonth();
+      var tDate = today.getDate();
+      tMonth = doHandleMonth(tMonth + 1);
+      tDate = doHandleMonth(tDate);
+      this.this.monthArr= tYear + "-" + tMonth + "-" + tDate;
     },
     getEchart() {
       let weeksChart = echarts.init(document.getElementById("weeksChart"));
