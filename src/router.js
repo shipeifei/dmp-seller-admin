@@ -7,6 +7,8 @@ const Login = resolve => require(['@/components/Login'], resolve)
 const forgetPassword = resolve => require(['@/components/forgetPassword'], resolve)
 const register = resolve => require(['@/components/register'], resolve)
 const home = resolve => require(['@/views/home'], resolve)
+const sms = resolve => require(['@/views/sms'], resolve)
+const sellerLeaveMessage = resolve => require(['@/views/sellerLeaveMessage'], resolve)
 const seller = resolve => require(['@/views/seller'], resolve)
 const version = resolve => require(['@/views/version'], resolve)
 const order = resolve => require(['@/views/version/order'], resolve)
@@ -24,6 +26,14 @@ const router = new Router({
                 path: '/home',
                 name: 'home',
                 component: home
+            }, {
+                path: '/sms',
+                name: 'sms',
+                component: sms
+            }, {
+                path: '/sellerLeaveMessage',
+                name: 'sellerLeaveMessage',
+                component: sellerLeaveMessage
             }, {
                 path: '/seller',
                 name: 'seller',

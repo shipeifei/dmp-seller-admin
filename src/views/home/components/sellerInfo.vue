@@ -6,7 +6,7 @@
                 <span class="seller-name">
                     <b>机构名称</b>
                     <div class="box-text">账户版本:免费版
-                        <el-tooltip class="item" effect="dark" content="升级到VIP" placement="top">
+                        <el-tooltip class="item" effect="dark" content="升级为会员" placement="top">
                             <span class="upgrade" @click="seller">
                                 升级
                                 <i class="el-icon-top"></i>
@@ -14,20 +14,23 @@
                         </el-tooltip>
                     </div>
                     <div class="box-text">到期时间:无限</div>
-                    <div class="box-text">入驻时间:2019-09-11</div>
+                    <div class="box-text">入驻时间:{{purchaseDate | date}}</div>
                     <div class="box-text" @click="editor">
                         <span>编辑</span>
                     </div>
                 </span>
                 <label class="seller-info"> 简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</label>
             </p>
-
         </div>
     </div>
 </template>
 <script>
 export default {
-  components: {},
+  data() {
+    return {
+      purchaseDate: 1562575733000
+    };
+  },
   methods: {
     editor() {
       this.$router.push("/seller");
@@ -35,6 +38,16 @@ export default {
     seller() {
       this.$router.push("/version");
     }
+  },
+  filters: {
+    date(val) {
+      let date = new Date(val);
+      let year = date.getFullYear();
+      let month = date.getMonth() + 1;
+      let day = date.getDate();
+      return year + "年" + month + "月" + day + "日";
+    }
+    
   }
 };
 </script>
@@ -42,7 +55,7 @@ export default {
 .el-icon-top {
   font-size: 14px;
   font-weight: bolder;
-  color: #409EFF;
+  color: #409eff;
 }
 .application-model {
   p {
@@ -72,12 +85,12 @@ export default {
       display: block;
       span {
         text-decoration: underline;
-        color: #409EFF;
+        color: #409eff;
         cursor: pointer;
       }
       .upgrade {
         text-decoration: underline;
-        color: #409EFF;
+        color: #409eff;
         cursor: pointer;
       }
     }

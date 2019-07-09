@@ -26,15 +26,15 @@ export default {
         {
           icon: "el-icon-chat-dot-square",
           name: "短信",
-          path: "duanx"
+          path: "/sms"
         },
         {
-          icon: "el-icon-chat-dot-square",
+          icon: "el-icon-notebook-1",
           name: "机构留言",
-          path: "duanx"
+          path: "/sellerLeaveMessage"
         },
         {
-          icon: "el-icon-service",
+          icon: "el-icon-edit",
           name: "机构纠错",
           path: "kef"
         },

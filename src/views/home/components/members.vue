@@ -5,7 +5,7 @@
         </div>
         <div class="card-text item">
             <p>
-                <span>购买日期：{{purchaseDate | data}}</span><br/>
+                <span>购买日期：{{purchaseDate | date}}</span><br/>
                 <span>剩余天数：{{purchaseDate | diffdate}}</span>
             </p>
             <li v-for="(item,index) in packageData" :key="index">
@@ -45,7 +45,7 @@ export default {
     }
   },
   filters: {
-    data(val) {
+    date(val) {
       let date = new Date(val);
       let year = date.getFullYear();
       let month = date.getMonth() + 1;

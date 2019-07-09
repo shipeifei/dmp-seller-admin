@@ -1,17 +1,18 @@
 <template>
     <div class="sms-page">
-        <div class="sms-title">短信记录</div>
+        <div class="sms-title">机构留言</div>
         <div class="sms-table">
             <h3>有
-                <i>{{tableData.length}}</i>&nbsp;条记录 (升级VIP可查看完整手机号)</h3>
-            <el-table :data="tableData" border style="width: 100%">
+                <i>{{tableData.length}}</i>&nbsp;条留言</h3>
+            <el-table :data="tableData" border style="width: 100%" class="table-cel">
                 <el-table-column prop="id" label="序号">
                 </el-table-column>
-                <el-table-column label="手机号">
+                <el-table-column label="留言内容">
                     <template slot-scope="scope">
-                        <span>{{scope.row.tel | tel}}</span>
+                        {{scope.row.content}}
                     </template>
                 </el-table-column>
+
             </el-table>
         </div>
     </div>
@@ -23,26 +24,20 @@ export default {
       tableData: [
         {
           id: 1,
-          tel: "13011111111"
+          content:
+            "有萨克斯产品吗有萨克斯产品吗有萨克斯产品吗有萨克斯产品吗有萨克斯产品吗有萨克斯产品吗有萨克斯产品吗有萨克斯产品吗有萨克斯产品吗有萨克斯产品吗有萨克斯产品吗"
         },
         {
           id: 2,
-          tel: "13022222222"
+          content: "工厂在什么地方"
         }
       ]
     };
-  },
-  filters: {
-    // 手机号脱敏
-    tel(val) {
-      let data = val.replace(/(\d{3})\d{4}(\d*)/, "$1****$2");
-      return data;
-    }
   }
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less" >
 .sms-page {
   width: 100%;
   box-sizing: border-box;
@@ -59,8 +54,12 @@ export default {
   .sms-table {
     width: 100%;
     padding: 20px;
-    span {
-      color:#409eff;
+    .el-table .cell {
+      font-size: 12px;
+      color: #878787;
+    }
+    a {
+      color: #409eff;
       cursor: pointer;
     }
     h3 {
