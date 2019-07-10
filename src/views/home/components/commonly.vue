@@ -22,7 +22,7 @@ export default {
         let paths = JSON.parse(localStorageApi.get('paths'))
         var countOrder = _.orderBy(paths, ['count'], ['desc'])
         if (countOrder.length > 8) {
-          this.pathsList = countOrder.splice(0, 2)
+          this.pathsList = countOrder.splice(0, 8)
         } else {
           this.pathsList = countOrder
         }

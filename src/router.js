@@ -101,12 +101,8 @@ router.beforeEach((to, from, next) => {
     next()
 })
 router.afterEach((to, next) => {
-    // console.log(to)
-    // console.log(to.meta.title)
-
     let currentName = to.meta.title;
     let toPath = to.path;
-    // let toName = to.name
     let pathsList = localStorageApi.get('paths') ? JSON.parse(localStorageApi.get('paths')) : [];
     if (pathsList.length > 0) {
         let isExistCurrentIndex = _.findIndex(pathsList, o => {
@@ -117,7 +113,6 @@ router.afterEach((to, next) => {
         } else {
             pathsList.push({
                 path: toPath,
-                // name: toName,
                 count: 1,
                 menuName: currentName
             })
@@ -125,7 +120,6 @@ router.afterEach((to, next) => {
     } else {
         pathsList.push({
             path: toPath,
-            // name: toName,
             count: 1,
             menuName: currentName
         })
