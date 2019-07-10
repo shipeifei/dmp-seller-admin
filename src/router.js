@@ -26,31 +26,52 @@ const router = new Router({
             children: [{
                 path: '/home',
                 name: 'home',
-                component: home
+                component: home,
+                meta: {
+                    title: '首页'
+                }
             }, {
                 path: '/sms',
                 name: 'sms',
-                component: sms
+                component: sms,
+                meta: {
+                    title: '短信'
+                }
             }, {
                 path: '/sellerLeaveMessage',
                 name: 'sellerLeaveMessage',
-                component: sellerLeaveMessage
+                component: sellerLeaveMessage,
+                meta: {
+                    title: '机构留言'
+                }
             }, {
                 path: '/seller',
                 name: 'seller',
-                component: seller
+                component: seller,
+                meta: {
+                    title: '机构中心'
+                }
             }, {
                 path: '/sellerError',
                 name: 'sellerError',
-                component: sellerError
+                component: sellerError,
+                meta: {
+                    title: '机构纠错'
+                }
             }, {
                 path: '/version',
                 name: 'version',
-                component: version
+                component: version,
+                meta: {
+                    title: '购买套餐'
+                }
             }, {
                 path: '/order/:pay',
                 name: 'order',
-                component: order
+                component: order,
+                meta: {
+                    title: '订单'
+                }
             }]
         },
         {
@@ -75,7 +96,9 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
     next()
 })
-router.afterEach(() => {
+router.afterEach((to, next) => {
+    console.log(to)
+    console.log(to.meta.title)
     NProgress.done()
 })
 

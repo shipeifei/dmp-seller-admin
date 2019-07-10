@@ -13,6 +13,7 @@
         <!-- 机构信息及公告 -->
         <div class="seller-info">
             <seller-info></seller-info>
+            <seller-information></seller-information>
             <info></info>
         </div>
         <!-- 对比信息 -->
@@ -24,6 +25,7 @@
     </div>
 </template>
 <script>
+import { sessionStorageApi ,localStorageApi} from "@/utils/storageApi.js";
 // 添加引导步骤
 
 import Driver from "driver.js"; // import driver.js
@@ -34,6 +36,7 @@ import commonly from "./components/commonly";
 import todayData from "./components/todayData";
 import members from "./components/members";
 import sellerInfo from "./components/sellerInfo";
+import sellerInformation from "./components/sellerInformation";
 import info from "./components/info";
 import browse from "./components/browse";
 import browseChart from "./components/browseChart";
@@ -43,6 +46,7 @@ export default {
     todayData,
     members,
     sellerInfo,
+    sellerInformation,
     info,
     browse,
     browseChart
@@ -52,18 +56,21 @@ export default {
   },
   mounted() {
     this.driver = new Driver({
-      className: "scoped-class", 
-      animate: true, 
-      opacity: 0.75, 
-      padding: 10, 
-      allowClose: true, 
-      overlayClickNext: false, 
+      className: "scoped-class",
+      animate: true,
+      opacity: 0.75,
+      padding: 10,
+      allowClose: true,
+      overlayClickNext: false,
       doneBtnText: "完成",
-      closeBtnText: "关闭", 
+      closeBtnText: "关闭",
       nextBtnText: "下一步",
-      prevBtnText: "上一步" 
+      prevBtnText: "上一步"
     });
-    this.guide();
+    if (!localStorageApi.get("firstLogin")) {
+      this.guide();
+      localStorageApi.set("firstLogin", "ture");
+    }
   },
   methods: {
     //引导步骤
@@ -88,9 +95,13 @@ export default {
   box-sizing: border-box;
   width: 100%;
   display: flex;
+  div {
+    margin: 10px;
+    flex: 2;
+  }
   div:first-child {
     margin: 10px;
-    flex: 4;
+    flex: 2;
   }
   div:last-child {
     margin: 10px;

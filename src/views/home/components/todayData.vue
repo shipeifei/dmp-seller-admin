@@ -77,7 +77,7 @@ export default {
     color: #878787;
   }
   .stat-widget-two .stat-digit {
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 600;
     color: #878787;
   }

@@ -12,6 +12,8 @@
                 </el-table-column>
                 <el-table-column prop="time" label="留言手机号">
                 </el-table-column>
+                <el-table-column prop="email" label="留言邮箱">
+                </el-table-column>
                 <el-table-column prop="time" label="留言日期">
                 </el-table-column>
             </el-table>
@@ -33,36 +35,21 @@ export default {
           id: 1,
           name: "张三",
           content: "留言内容",
+          email:"",
           time: "2019-07-09"
         },
         {
           id: 2,
           name: "李四",
           content: "工厂在什么地方",
+          email:"",
           time: "2019-07-09"
         },
         {
           id: 3,
           name: "张三",
           content: "留言内容",
-          time: "2019-07-09"
-        },
-        {
-          id: 4,
-          name: "张三",
-          content: "留言内容",
-          time: "2019-07-09"
-        },
-        {
-          id: 5,
-          name: "张三",
-          content: "留言内容",
-          time: "2019-07-09"
-        },
-        {
-          id: 6,
-          name: "张三",
-          content: "留言内容",
+          email:"",
           time: "2019-07-09"
         }
       ]

@@ -3,20 +3,16 @@
         <div class="sms-title">短信记录</div>
         <div class="sms-table">
             <h3>有
-                <i>{{tableData.length}}</i>&nbsp;条记录 (升级VIP可查看完整手机号)
-                <span @click="go">马上升级
-                    <i class="el-icon-top"></i>
-                </span>
+                <i>{{tableData.length}}</i>&nbsp;条记录 
+               
             </h3>
             <el-table :data="tableData" border style="width: 100%">
-                <el-table-column prop="id" label="序号">
-                </el-table-column>
-                <el-table-column label="手机号">
+                <el-table-column label="发送手机号">
                     <template slot-scope="scope">
-                        <span>{{scope.row.tel | tel}}</span>
+                        <span>{{scope.row.tel}}</span>
                     </template>
                 </el-table-column>
-                <el-table-column prop="time" label="日期">
+                <el-table-column prop="time" label="发送日期">
                 </el-table-column>
             </el-table>
             <div class="block">

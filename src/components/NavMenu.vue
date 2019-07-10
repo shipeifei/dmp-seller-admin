@@ -1,6 +1,6 @@
 <template>
     <div class="nav-menu-page">
-        <router-link v-for="(item,index) in navMenus" :key="item.name" :to="item.path" tag="li">
+        <router-link v-for="(item,index) in navMenus" :key="item.name" :to="item.path" tag="li" :class="'nav-'+index">
             <i :class="item.icon" />
             <span>{{ item.name }}</span>
         </router-link>
