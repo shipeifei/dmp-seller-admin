@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import _ from 'lodash'
+import { localStorageApi } from "@/utils/storageApi.js";
+
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 const Layout = resolve => require(['@/components/Layout'], resolve)
@@ -94,11 +97,40 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
+    window.document.title = to.meta.title;
     next()
 })
 router.afterEach((to, next) => {
-    console.log(to)
-    console.log(to.meta.title)
+    // console.log(to)
+    // console.log(to.meta.title)
+
+    let currentName = to.meta.title;
+    let toPath = to.path;
+    // let toName = to.name
+    let pathsList = localStorageApi.get('paths') ? JSON.parse(localStorageApi.get('paths')) : [];
+    if (pathsList.length > 0) {
+        let isExistCurrentIndex = _.findIndex(pathsList, o => {
+            return o.path === toPath;
+        })
+        if (isExistCurrentIndex > -1) {
+            pathsList[isExistCurrentIndex]['count'] += 1;
+        } else {
+            pathsList.push({
+                path: toPath,
+                // name: toName,
+                count: 1,
+                menuName: currentName
+            })
+        }
+    } else {
+        pathsList.push({
+            path: toPath,
+            // name: toName,
+            count: 1,
+            menuName: currentName
+        })
+    }
+    localStorageApi.set('paths', JSON.stringify(pathsList));
     NProgress.done()
 })
 

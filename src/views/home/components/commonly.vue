@@ -1,11 +1,33 @@
 <template>
      <div class="commonly_used">最近使用:
-            <a href="">机构留言</a>
-            <a href="">机构纠错</a>
+           <router-link  v-for="(item,index) in pathsList" :to="item.path">
+               {{item.menuName}}
+           </router-link>
         </div>
 </template>
 <script>
+import { localStorageApi } from "@/utils/storageApi.js";
+
 export default {
+    data(){
+        return{
+            pathsList:[]
+        }
+    },
+    mounted(){
+        this.getLocalStorAge()
+    },
+    methods:{
+        getLocalStorAge() {
+        let paths = JSON.parse(localStorageApi.get('paths'))
+        var countOrder = _.orderBy(paths, ['count'], ['desc'])
+        if (countOrder.length > 8) {
+          this.pathsList = countOrder.splice(0, 2)
+        } else {
+          this.pathsList = countOrder
+        }
+      }
+    }
     
 }
 </script>
