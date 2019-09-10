@@ -1,6 +1,6 @@
 <template>
     <div class="version-page">
-        <!-- <div class="version-title">购买套餐</div> -->
+        <div class="version-title">购买套餐</div>
         <div class="version-content-body">
             <div class="grid-content bg-purple">
                 <p class="version" style="background:#758d94;color:#fff;">免费版</p>
@@ -134,18 +134,17 @@
 </template>
 <script>
 export default {
-    name: 'Version',
   data() {
     return {};
   },
   methods: {
     pay(pay) {
-      this.$router.push({ path: "/order/index/"+ pay});
+      this.$router.push({ path: "/order/" + pay });
     }
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .el-icon-check {
   font-size: 18px;
   color: #4cae4c;
@@ -188,7 +187,6 @@ export default {
         background-color: #fff;
         padding-left: 16px;
         padding-right: 16px;
-        margin: 0;
       }
       .version-state {
         width: 80%;

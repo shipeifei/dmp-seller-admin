@@ -1,41 +1,28 @@
 import Vue from 'vue'
-
-import 'normalize.css/normalize.css' // A modern alternative to CSS resets
-
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import locale from 'element-ui/lib/locale/lang/en' // lang i18n
-
-import '@/styles/index.scss' // global css
-
-import App from './App'
-import store from './store'
 import router from './router'
+import store from './store'
+import App from './App.vue'
+// 公共样式
+import './assets/less/common.less'
+import DateUtils from './utils/date'
+import i18n from './i18n'
+import GucpUi from './components/ui'
 
-import '@/icons' // icon
-import '@/permission' // permission control
+// 词云
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+require('echarts-wordcloud')
 
-/**
- * If you don't want to use mock-server
- * you want to use MockJs for mock api
- * you can execute: mockXHR()
- *
- * Currently MockJs will be used in the production environment,
- * please remove it before going online! ! !
- */
-import { mockXHR } from '../mock'
-if (process.env.NODE_ENV === 'production') {
-  mockXHR()
-}
-
-// set ElementUI lang to EN
-Vue.use(ElementUI, { locale })
-
+Vue.use(DateUtils)
+Vue.use(GucpUi)
+Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 new Vue({
-  el: '#app',
   router,
   store,
+  i18n,
   render: h => h(App)
-})
+}).$mount('#app')
